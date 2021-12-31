@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Search Box</title>
+</head>
+
+<body>
+    <div class="close-btn">
+        <span class="fa fas-times"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="wrapper">
+        <div class="search-btn">
+            <span class="fa fas-search"><i class="fas fa-search"></i></span>
+        </div>
+        <div class="search-data">
+            <input type="text" required>
+            <div class="line"></div>
+            <label>Type to search..</label>
+            <span class="fa fas-search"><i class="fas fa-search"></i></span>
+        </div>
+    </div>
+
+    <script>
+        $(".search-btn").click(function(){
+            $(".wrapper").addClass("active");
+            $(this).css("display", "none");
+            $(".search-data").fadeIn(500);
+            $(".close-btn").fadeIn(500);
+            $(".search-data .line").addClass("active");
+            setTimeout(function(){
+                $("input").focus();
+                $(".search-data label").fadeIn(500);
+                $(".search-data span").fadeIn(500);
+            }, 800)
+        });
+        $(".close-btn").click(function(){
+            $(".wrapper").removeClass("active");
+            $(".search-btn").fadeIn(800);
+            $(".search-data").fadeOut(500);
+            $(".close-btn").fadeOut(500);
+            $(".search-data .line").removeClass("active");
+            $("input").val();
+                $(".search-data label").fadeOut(500);
+                $(".search-data span").fadeOut(500);
+        });
+    </script>
+
+</body>
+
+</html>
